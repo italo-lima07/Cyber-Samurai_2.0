@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public float speed;
     public float jumnpForce;
+    public int health;
 
     private bool isJumping;
     private bool isAtk;
@@ -103,5 +104,25 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
 
+    }
+    public void Damage(int dmg)
+    {
+        health -= dmg;
+        anim.SetTrigger("hit");
+
+        if (transform.rotation.y == 0)
+        {
+            transform.position += new Vector3(-2,0,0);
+        }    
+        
+        if (transform.rotation.y == 180)
+        {
+            transform.position += new Vector3(2,0,0);
+        } 
+
+        if (health <= 0)
+        {
+            //chama game over
+        }
     }
 }
