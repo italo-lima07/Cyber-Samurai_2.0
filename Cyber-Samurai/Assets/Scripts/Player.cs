@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 
     public float speed;
     public float jumnpForce;
-    public int health;
+    
+    public int health = 3;
 
     private bool isJumping;
     private bool isAtk;
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        
+        GameController.instance.UpdateLives(health);
     }
 
     // Update is called once per frame
@@ -96,16 +99,8 @@ public class Player : MonoBehaviour
                 anim.SetInteger("transition", 0);
             }
         }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.layer == 6)
-        {
-            isJumping = false;
-        }
-
-    }
-    public void Damage(int dmg)
+        
+        public void Damage(int dmg)
     {
         health -= dmg;
         anim.SetTrigger("hit");
@@ -118,11 +113,26 @@ public class Player : MonoBehaviour
         if (transform.rotation.y == 180)
         {
             transform.position += new Vector3(2,0,0);
-        } 
-
+        }
+        
         if (health <= 0)
         {
-            //chama game over
+            GameController.instance.GameOver(); 
+        }
+
+    }
+    
+    public void IncreaseLife(int value)
+    {
+        health += value;
+        GameController.instance.UpdateLives(health);
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.layer == 6)
+        {
+            isJumping = false;
         }
     }
 }
