@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumnpForce;
     
-    public int health = 3;
+    public int health;
 
     private bool isJumping;
     private bool isAtk;
@@ -103,7 +103,8 @@ public class Player : MonoBehaviour
         public void Damage(int dmg)
     {
         health -= dmg;
-        anim.SetTrigger("hit");
+        GameController.instance.UpdateLives(health);
+        anim.SetInteger("transition", 4);
 
         if (transform.rotation.y == 0)
         {
@@ -117,7 +118,7 @@ public class Player : MonoBehaviour
         
         if (health <= 0)
         {
-            GameController.instance.GameOver(); 
+            //GameController.instance.GameOver(); 
         }
 
     }

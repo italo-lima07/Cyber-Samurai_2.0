@@ -50,8 +50,8 @@ public class GameController : MonoBehaviour
     }
     public void GameOver()
     {
-        gameOverOBJ.SetActive(true);
-        Time.timeScale = 0f;
+        //gameOverOBJ.SetActive(true);
+        //Time.timeScale = 0f;
     }
 }
    
