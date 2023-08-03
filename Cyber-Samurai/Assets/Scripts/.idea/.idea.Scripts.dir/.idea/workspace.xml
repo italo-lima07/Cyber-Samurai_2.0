@@ -12,9 +12,11 @@
     <setting file="file://$PROJECT_DIR$/Attack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ItemHealth.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/spike.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../lost_paradise/platafuerma/Assets/scripts/Attack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../lost_paradise/platafuerma/Assets/scripts/itemHeart.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../lost_paradise/platafuerma/Assets/scripts/player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../lost_paradise/platafuerma/Assets/scripts/slime.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -47,7 +49,7 @@
       <workItem from="1690467381378" duration="111000" />
       <workItem from="1690467580182" duration="1067000" />
       <workItem from="1691066060645" duration="6244000" />
-      <workItem from="1691094429485" duration="2107000" />
+      <workItem from="1691094429485" duration="2441000" />
     </task>
     <servers />
   </component>
