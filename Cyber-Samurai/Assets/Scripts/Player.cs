@@ -32,39 +32,39 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         Atk();
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            StartCoroutine("Attack");
+        }
     }
 
     void Move()
     {
         movement = Input.GetAxis("Horizontal");
-        
 
         rig.velocity = new Vector2(movement * speed, rig.velocity.y);
 
         if (movement > 0)
         {
-            if (!isJumping)
+            if (!isJumping && !isAtk)
             {
-                anim.SetInteger("transition",1);
+                anim.SetInteger("transition", 1);
             }
-           
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-
-        if (movement < 0)
-        {
-            if (!isJumping)
-            {
-                anim.SetInteger("transition",1); 
-            }
-           
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-
-        if (movement == 0 && !isJumping && !isAtk)
+        else if (movement < 0)
         {
-            anim.SetInteger("transition",0);
+            if (!isJumping && !isAtk)
+            {
+                anim.SetInteger("transition", 1);
+            }
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
+        else if (movement == 0 && !isJumping && !isAtk)
+        {
+            anim.SetInteger("transition", 0);
+        }
+
         
     }
 
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     {
         health -= dmg;
         GameController.instance.UpdateLives(health);
-        anim.SetInteger("transition", 4);
+        anim.SetTrigger("hit");
 
         if (transform.rotation.y == 0)
         {
