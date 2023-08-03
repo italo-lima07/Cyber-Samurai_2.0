@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    private BoxCollider2D colliderAttack;
     public int damage;
+
+    private BoxCollider2D coliderAtkPlayer;
+    // Start is called before the first frame update
     void Start()
     {
-        colliderAttack = GetComponent<BoxCollider2D>();
+        coliderAtkPlayer = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         if (Player.movement < 0)
         {
-            transform.localEulerAngles = new Vector3(-0.6f, 0, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
+        
         else if (Player.movement > 0)
         {
-            transform.localEulerAngles = new Vector3(0.6f, 0, 0);
-        } 
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collsion)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collsion.gameObject.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().Damage(damage);
+            collsion.GetComponent<Enemy>().Damage(damage);
         }
     }
 }
