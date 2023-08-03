@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     
     private Rigidbody2D rig;
     private Animator anim;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         Atk();
-        if (Input.GetKeyDown(KeyCode.X))
+        
+        if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine("Attack");
         }
